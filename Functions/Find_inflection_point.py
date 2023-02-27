@@ -8,7 +8,7 @@ class Inflection_Points:
         self.precision = precision
 
     def find_inflection(self, file_id):
-        data = np.loadtxt(file_id, skiprows=1, dtype=float)
+        data = np.loadtxt(file_id, delimiter = ',', skiprows=1)
         energy = data[:, 2]
         eqe = data[:, 3]
 
