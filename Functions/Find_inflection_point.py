@@ -27,7 +27,7 @@ class Inflection_Points:
 
         plt.legend(['Normalized EQE', 'Normalized numerical second derivative of EQE'], fontsize=8) #define legends
         plt.xlim([1.4, 3.5])
-        plt.show() #
+        plt.show() #show the plot
 
         for n in range(len(new_set[1, :]) - 1, 2, -1):
             a = new_set[1, n]
