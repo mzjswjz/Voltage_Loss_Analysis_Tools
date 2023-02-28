@@ -19,7 +19,7 @@ class Inflection_Points:
         interpolated_eqe = interp1d(energy, eqe, kind='cubic')
 
         # Generate new energy values for interpolation
-        new_energy = np.linspace(energy.min(), energy.max(), 300)
+        new_energy = np.linspace(energy.min(), energy.max(), 2000)
         # Evaluate interpolated function at new energy values
         new_eqe = interpolated_eqe(new_energy)
 
