@@ -2,10 +2,8 @@ from Functions import Find_inflection_point as FindInflect
 import os
 
 def main():
-    q1 = 'Where the EQE raw file is located? (including .txt)'
- #   q2 = 'What is the precision you set to find inflection point? '
+    q1 = 'Where the EQE raw file is located? (including file extension name)'
 
- #   precision = float(input(q2))
     while True:
         file_id = input(q1)
         if os.path.isfile(file_id):

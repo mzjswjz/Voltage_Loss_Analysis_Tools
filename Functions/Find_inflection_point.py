@@ -7,8 +7,7 @@ class Inflection_Points:
 
     def __init__(self, file_id):
         self.file_id = file_id
-        #self.rangemin = rangemin
-        #self.rangemax = rangemax
+
 
     def plot_sec_diff(self):
 
