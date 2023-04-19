@@ -48,9 +48,11 @@ class Inflection_Points:
         # Add a legend to the plot with font size of 8
         plt.legend(['Normalized EQE', 'Normalized numerical second derivative of EQE'], fontsize=8)
         # Set the x-axis limits to be the minimum and maximum energy values
-        plt.xlim(new_energy[0], new_energy[-1])
+        plt.xlim(new_energy[0], new_energy[-1], 0.25)
+        plt.grid()
         # Show the plot
-        plt.show(dpi=500)
+        plt.show(dpi=200)
+
 
     # Function that finds the inflection point of the EQE data within a specified energy range
     def find_inflection(self, rangemin, rangemax):

@@ -7,7 +7,7 @@ import os
 def main():
 
     # Ask the user to enter the path of the EQE raw file
-    q1 = 'Where the EQE raw file is located? (including .txt)'
+    q1 = 'Where the EQE raw file is located? (including file name)'
     while True:
         file_id = input(q1)
         # Check if the file exists
