@@ -22,7 +22,7 @@ class Jsc:
         self.EQE = interp1d(self.raw_wavelength, self.raw_eqe, kind='cubic', bounds_error=False, fill_value=0.0)
 
         # Read AM1.5G
-        spectrum = np.loadtxt('AM1.5G.txt', delimiter='\t', skiprows=1)
+        spectrum = np.loadtxt('AM15G.txt', delimiter='\t', skiprows=1)
         self.AM15G_wavelength = spectrum[:, 0] # nm
         self.AM15G_irradiance = spectrum[:, 1] # W*m^-2*nm^-1
 
