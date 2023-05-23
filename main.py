@@ -22,7 +22,7 @@ def main():
         # Create an instance of the Inflection_Points class with the file ID
         fip = FindInflect.Inflection_Points(file_id)
         # Plot the second derivative of the EQE data
-        fip.plot_sec_diff_from_SG_smooth()
+        fip.plot_sec_diff_from_SG_smooth(savefig=True)
 
         # Ask the user to set a range to search for the inflection point
         q3 = 'Set a range to find inflection point (separated by comma)'
@@ -34,7 +34,7 @@ def main():
         rangemax = max(parts)
 
         # Find the inflection point within the specified range
-        inflection_pt = fip.find_inflection(rangemin, rangemax)
+        inflection_pt = fip.find_inflection(rangemin, rangemax, savefig=True)
         print(f'Inflection point: {inflection_pt}')
 
     except Exception as e:
