@@ -22,7 +22,7 @@ def main():
         # Create an instance of the Inflection_Points class with the file ID
         fip = FindInflect.Inflection_Points(file_id)
         # Plot the second derivative of the EQE data
-        fip.plot_sec_diff_from_SG_smooth(savefig=True)
+        fip.plot_sec_diff_from_SG_smooth(savefig=True, smooth_window=100)
 
         # Ask the user to set a range to search for the inflection point
         q3 = 'Set a range to find inflection point (separated by comma)'
@@ -45,7 +45,7 @@ def main():
 
     # Calculate Jsc: uncomment the block below
 
-    # # Ask the user to enter the path of the EQE raw file
+    ## Ask the user to enter the path of the EQE raw file
     # q1 = 'Where the EQE raw file is located? (including file name)'
     # while True:
     #     file_id = input(q1)
