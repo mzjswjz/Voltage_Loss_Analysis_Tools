@@ -150,7 +150,7 @@ class Inflection_Points:
             b = self.norm_set[n + 1]
             if a > 0 and b < 0:
                 inflection_pt = (self.new_set[0, n] + self.new_set[0, n + 1]) / 2
-                formatted_inflection_pt = '{:.3f}'.format(inflection_pt)
+                formatted_inflection_pt = '{:.4f}'.format(inflection_pt)
 
                 # Plot inflection point
                 x_inflect = np.full(100, inflection_pt)
