@@ -9,7 +9,7 @@ import os
 def main():
 
 
-    #Find Eg_PV: Uncomment the block below
+####### Find Eg_PV: Uncomment the block below
 
 
     # # Ask the user to enter the path of the EQE raw file
@@ -46,7 +46,7 @@ def main():
 
 
 
-    # Calculate Jsc: uncomment the block below
+######### Calculate Jsc: uncomment the block below
     #
     # # Ask the user to enter the path of the EQE raw file
     # q1 = 'Where the EQE raw file is located? (including file name)'
@@ -66,6 +66,10 @@ def main():
     #     # Print any errors that occur during the processing
     #     print(f'Error: {e}')
 
+
+
+###### Find Urbach_energy at the edge and plot : Uncomment the block below
+
     q1 = 'Where the EQE raw file is located? (including file name)'
     while True:
         file_id = input(q1)
@@ -76,9 +80,28 @@ def main():
 
     try:
         # Create an instance of the Urbach class with the file ID
-        Urbach = Plot_Urbach_app_E.Urbach_E(file_id)
+        Urbach = Plot_Urbach_app_E.Urbach_E(file_id, temperature=300)
         # Plot Urbach_energy
-        Urbach.plot_Urbacch_app_E(savefig=False)
+        Urbach.plot_urbach_energy(savefig=False, grid_handle=True)
+
+        # Take user input for the energy range and method
+        start_energy = float(input("Enter the start energy value (in eV): "))
+        end_energy = float(input("Enter the end energy value (in eV): "))
+        method = input("Enter the method ('parabolic' or 'plateau'): ").strip().lower()
+
+        # Validate method input
+        if method not in ['parabolic', 'plateau']:
+            print("Invalid method. Please enter 'parabolic' or 'plateau'.")
+            return
+
+        # Calculate the Urbach energy edge
+        urbach_energy_edge = Urbach.find_urbach_energy_at_edge(start=start_energy, end=end_energy, method=method,
+                                                               plot=True, savefig=False, grid_handle=False)
+
+        # Print the calculated Urbach energy edge
+        print(f"Urbach energy at the edge ({method} method): {urbach_energy_edge:.2f} meV")
+
+
 
     except Exception as e:
         # Print any errors that occur during the processing
