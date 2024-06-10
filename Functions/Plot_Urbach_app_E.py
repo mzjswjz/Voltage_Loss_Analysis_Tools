@@ -81,7 +81,7 @@ class Urbach_E:
 
             if highlight_energy is not None and highlight_value is not None:
                 # Highlight the specified point
-                ax.text(highlight_energy+0.05, highlight_value-3, f'{highlight_value:.2f} meV', color='#990000', ha='right')
+                ax.text(highlight_energy+0.05, highlight_value-4, f'{highlight_value:.2f} meV', color='#990000', ha='right')
 
 
             ax.set_xlabel('Energy (eV)', fontsize=fontsize)
@@ -134,15 +134,16 @@ class Urbach_E:
 
             # Check nearest points to see if they have similar values
             i = min_index - 1
-            while i >= 0 and np.abs(urbach_energy_range[i] - lowest_value) < 0.01 * lowest_value:
+            while i >= 0 and np.abs(urbach_energy_range[i] - lowest_value) < 0.05 * lowest_value:
                 plateau_region.append(urbach_energy_range[i])
                 i -= 1
             i = min_index + 1
-            while i < len(urbach_energy_range) and np.abs(urbach_energy_range[i] - lowest_value) < 0.01 * lowest_value:
+            while i < len(urbach_energy_range) and np.abs(urbach_energy_range[i] - lowest_value) < 0.05 * lowest_value:
                 plateau_region.append(urbach_energy_range[i])
                 i += 1
             # Calculate the average value in this plateau region
             urbach_energy_edge = np.mean(plateau_region)
+            print(plateau_region)
             label_energy = energy_range[min_index]
 
             if plot:
