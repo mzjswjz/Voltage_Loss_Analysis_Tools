@@ -76,8 +76,8 @@ class Urbach_E:
             ax.set_xlim(1.1, 2)  # set the x-axis limits
             ax.set_ylim(0, 100)  # set the y-axis limits
             ax.set_xticks(np.arange(1.2, 2.1, 0.1))
-            ax.plot(self.raw_energy, self.urbach_energy, label='Urbach Energy')  # plot Urbach energy
-            ax.axhline(y=self.kT, color='grey', linestyle='--', label=f'$kT$ = {self.kT:.2f} meV')  # plot kT line
+            ax.plot(self.raw_energy, self.urbach_energy, label=r'$E^{app}_U$')  # plot Urbach energy
+            ax.axhline(y=self.kT, color='grey', linestyle='--', label=r'$kT_{300K}$' f'= {self.kT:.2f} meV')  # plot kT line
 
             if highlight_energy is not None and highlight_value is not None:
                 # Highlight the specified point
@@ -85,7 +85,7 @@ class Urbach_E:
 
 
             ax.set_xlabel('Energy (eV)', fontsize=fontsize)
-            ax.set_ylabel('Urbach Energy (meV)', fontsize=fontsize)
+            ax.set_ylabel('Apparent Urbach Energy $E^{app}_U$ (meV)', fontsize=fontsize)
             ax.legend(fontsize=fontsize-2, frameon=False, loc='lower right')
             ax.grid(grid_handle)
 
