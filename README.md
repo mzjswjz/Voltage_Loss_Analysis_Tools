@@ -1,42 +1,33 @@
 # Voltage Loss Analysis Tools
 
-Tools for analyzing voltage losses in photovoltaic devices. This repository contains scripts for calculating and visualizing various loss mechanisms in solar cells.
+A collection of Python tools for analyzing photovoltaic device EQE data.
 
-## Overview
+## Files
 
-Voltage loss analysis is essential for understanding the efficiency limits of photovoltaic devices. This toolkit provides methods to:
+| File | Description |
+|------|-------------|
+| `main.py` | Entry point with interactive prompts for running analysis workflows |
+| `AM15G.txt` | AM1.5G solar spectrum data file |
+| `Functions/Calculate_Jsc.py` | `Jsc` class — calculates short-circuit current density from EQE and AM1.5G spectrum |
+| `Functions/Find_inflection_point.py` | `Inflection_Points` class — finds inflection points in EQE data using second derivative analysis |
+| `Functions/Plot_Urbach_app_E.py` | `Urbach_E` class — plots Urbach energy and calculates Urbach energy at the band edge |
+| `Functions/__init__.py` | Module initializer |
 
-- Calculate open-circuit voltage (V_OC) losses
-- Analyze radiative and non-radiative recombination
-- Compare experimental data against theoretical limits (Shockley-Queisser)
+## What It Does
 
-## Key Metrics
-
-- **V_OC**: Open-circuit voltage
-- **J_SC**: Short-circuit current density
-- **FF**: Fill factor
-- **ΔV_OC**: Voltage loss relative to radiative limit
-
-## Analysis Methods
-
-1. **Radiative Loss Analysis** - Calculate radiative recombination limits
-2. **Non-Radiative Loss Analysis** - Estimate Shockley-Read-Hall recombination
-3. **SQ Limit Comparison** - Compare against theoretical maximum efficiency
-4. **Loss Spectrum Analysis** - Identify wavelength-dependent losses
+- **Calculate Jsc**: Integrates EQE data with AM1.5G solar spectrum to compute short-circuit current density (mA/cm²)
+- **Find Inflection Points**: Uses Savitzky-Golay smoothing and second derivative analysis to locate band gap/CT state energies
+- **Urbach Energy Analysis**: Fits exponential tail region of EQE to extract Urbach energy parameter
 
 ## Usage
 
-```python
-python main.py --input data.txt --analysis radiative
+Uncomment the relevant block in `main.py` and run:
+
+```bash
+python main.py
 ```
 
-## Dependencies
+The script will prompt for file paths and analysis parameters interactively.
 
-- Python 3.x
-- NumPy
-- Matplotlib
-- SciPy
-
-## Author
-
-mzjswjz
+---
+*Author: mzjswjz*
